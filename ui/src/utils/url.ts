@@ -1,1 +1,1 @@
-export const urlWithProtocol = (url: string) => `https://${url.replace('https://', '')}`;
+export const urlWithProtocol = (url: string) => url == undefined || null ? '' : `https://${url.replace('https://', '')}`;

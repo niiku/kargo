@@ -1,6 +1,6 @@
 import { Timestamp } from '@bufbuild/protobuf';
 import { faDocker, faGit } from '@fortawesome/free-brands-svg-icons';
-import { IconDefinition, faTimeline } from '@fortawesome/free-solid-svg-icons';
+import { IconDefinition, faTimeline, faAnchor } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { Tooltip, message } from 'antd';
@@ -262,6 +262,15 @@ const FreightContents = (props: {
         >
           <div>{i.tag}</div>
         </FreightContentItem>
+      ))}
+      {(freight?.charts || []).map((i) => (
+          <FreightContentItem
+              key={`${i.name}:${i.version}`}
+              title={`${i.name}:${i.version}`}
+              icon={faAnchor}
+          >
+            <div>{i.version}</div>
+          </FreightContentItem>
       ))}
     </div>
   );
